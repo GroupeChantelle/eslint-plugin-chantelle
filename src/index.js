@@ -2,8 +2,8 @@
 import cleanjs from 'eslint-config-cleanjs'
 import pick from 'lodash/pick'
 import merge from 'lodash/merge'
-import pkg from '../package.json'
 import reduce from 'lodash/reduce'
+import pkg from '../package.json'
 
 export const pluginsDependencies = reduce(
   pkg.dependencies,
@@ -17,7 +17,7 @@ export const pluginsDependencies = reduce(
 )
 
 export const chantelleRules = {
-  //prettier
+  // prettier
   'prettier/prettier': [
     2,
     {
@@ -28,17 +28,17 @@ export const chantelleRules = {
     },
   ],
 
-  //flow
+  // flow
   'flowtype/space-after-type-colon': 0,
   'flowtype/space-before-type-colon': 0,
 
-  //fp
+  // fp
   'fp/no-rest-parameters': 0,
 
-  //better
+  // better
   'better/no-new': 0,
 
-  //react
+  // react
   'react/no-unused-prop-types': 1,
 
   'array-callback-return': 2,
@@ -110,6 +110,7 @@ const extendConfig = (config, ext) => {
   let extension = ext
 
   if (typeof extension === 'string') {
+    // eslint-disable-next-line import/no-dynamic-require
     extension = require(ext)
   }
 

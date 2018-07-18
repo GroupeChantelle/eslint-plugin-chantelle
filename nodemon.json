@@ -1,0 +1,12 @@
+{
+  "ignore": [".git"],
+  "watch": [
+    "./src",
+    "./node_modules",
+    "./package.json",
+    "./.env",
+    "./.env.sample",
+    "./backpack.config.js"
+  ],
+  "ext": "js json env sample"
+}

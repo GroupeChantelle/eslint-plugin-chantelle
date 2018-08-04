@@ -1,4 +1,4 @@
-/* eslint fp/no-unused-expression:0, fp/no-nil:0, better/explicit-return:0 */
+/* eslint fp/no-unused-expression:0, fp/no-nil:0, better/explicit-return:0, no-shadow:0 */
 import { configs, chantelle, legacy, chantelleCommonJs } from './src'
 
 const checkArrayOfObjects = arrayOfObjects =>

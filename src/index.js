@@ -1,12 +1,12 @@
 /* eslint fp/no-mutating-methods:0, fp/no-mutation:0, fp/no-let:0, better/no-new:0, no-console:0, fp/no-unused-expression:0, better/no-ifs:0 */
 import cleanjs from 'eslint-config-cleanjs'
-import pick from 'lodash/pick'
-import merge from 'lodash/merge'
-import reduce from 'lodash/reduce'
+import pick from 'lodash.pick'
+import merge from 'lodash.merge'
+import reduce from 'lodash.reduce'
 import pkg from '../package.json'
 
 export const pluginsDependencies = reduce(
-  pkg.dependencies,
+  pkg.peerDependencies,
   (plugins, version, dependency) => {
     if (dependency.indexOf('eslint-plugin') === 0) {
       plugins.push(dependency.replace('eslint-plugin-', ''))
@@ -17,17 +17,6 @@ export const pluginsDependencies = reduce(
 )
 
 export const chantelleRules = {
-  // prettier
-  'prettier/prettier': [
-    2,
-    {
-      singleQuote: true,
-      trailingComma: 'es5',
-      parser: 'flow',
-      semi: false,
-    },
-  ],
-
   // flow
   'flowtype/space-after-type-colon': 0,
   'flowtype/space-before-type-colon': 0,
@@ -49,9 +38,20 @@ export const chantelleRules = {
     2,
     {
       beforeColon: false,
-      afterColon: true,
-    },
+      afterColon: true
+    }
   ],
+
+  'import/no-extraneous-dependencies': 1,
+  'global-require': 1,
+  'no-unused-vars': 1,
+  'no-underscore-dangle': 1,
+  'no-template-curly-in-string': 1,
+  'import/no-unresolved': 1,
+  'no-shadow': 1,
+  'no-use-before-define': 1,
+  'no-param-reassign': 1,
+  'block-scoped-var': 1
 }
 
 export const propsToPick = ['env', 'parserOptions', 'root', 'settings']
@@ -59,12 +59,12 @@ export const propsToPick = ['env', 'parserOptions', 'root', 'settings']
 export const getConfigBase = () => ({
   parser: 'babel-eslint',
   extends: [
+    'airbnb',
     'prettier',
     'plugin:flowtype/recommended',
-    'plugin:jest/recommended',
+    'plugin:jest/recommended'
   ],
   plugins: [
-    'prettier',
     '@chantelle/chantelle',
     'jest',
     'babel',
@@ -73,21 +73,24 @@ export const getConfigBase = () => ({
     'import',
     'jsx-a11y',
     'react',
-    'better',
+    'better'
   ],
+
   env: {
     es6: true,
     node: true,
-    browser: true,
-    'jest/globals': true,
+    jest: true,
+    browser: true
   },
+  // webpack-dotenv-plugin
+
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 9,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
-  },
+      jsx: true
+    }
+  }
 })
 
 const isPluginRule = ruleName =>
@@ -110,12 +113,12 @@ const extendConfig = (config, ext) => {
   let extension = ext
 
   if (typeof extension === 'string') {
-    // eslint-disable-next-line import/no-dynamic-require
+    // eslint-disable-next-line import/no-dynamic-require,global-require
     extension = require(ext)
   }
 
   const extensionRules = {
-    rules: Object.assign({}, getConfigRules(extension), chantelleRules),
+    rules: Object.assign({}, getConfigRules(extension), chantelleRules)
   }
 
   return merge(config, pick(extension, propsToPick), extensionRules)
@@ -141,13 +144,13 @@ export const chantelleCommonJs = {
   ...cleanJsConfig,
   parserOptions: {
     ...parserOptions,
-    sourceType: 'script',
+    sourceType: 'script'
   },
   rules: {
     ...rules,
     'import/no-commonjs': 0,
-    'fp/no-mutation': 0,
-  },
+    'fp/no-mutation': 0
+  }
 }
 
 export const configs = { legacy, chantelle, chantelleCommonJs }

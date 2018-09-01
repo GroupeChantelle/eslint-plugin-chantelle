@@ -1,6 +1,5 @@
 {
   "name": "@nod/eslint-plugin-nod",
-  "private": true,
   "main": "./build/main.js",
   "module": "./src/index.js",
   "sideEffects": false,

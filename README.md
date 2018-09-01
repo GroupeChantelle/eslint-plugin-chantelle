@@ -1,39 +1,45 @@
-# @chantelle/eslint-plugin-chantelle
+# @nod/eslint-plugin-nod
 
 ## Installation
 
-- ### Chantelle
+- ### NOD
+
   ```bash
-  npm i -D @chantelle/eslint-plugin-chantelle @chantelle/eslint-config-chantelle eslint-plugin-prettier prettier
+  npm i -D @nod/eslint-plugin-nod @nod/eslint-config-nod eslint-plugin-prettier prettier
   ```
 
   `package.json`
+
   ```json
   "eslintConfig": {
-    "extends": ["@chantelle/chantelle"],
+    "extends": ["@nod/nod"],
   }
   ```
 
-- ### Chantelle CommonJs
+- ### NOD CommonJs
+
   ```bash
-  npm i -D @chantelle/eslint-plugin-chantelle @chantelle/eslint-config-chantelle eslint-plugin-prettier prettier
+  npm i -D @nod/eslint-plugin-nod @nod/eslint-config-nod eslint-plugin-prettier prettier
   ```
 
   `package.json`
+
   ```json
   "eslintConfig": {
-    "extends": ["@chantelle/chantelleCommonJs"],
+    "extends": ["@nod/nodCommonJs"],
   }
   ```
 
 - ### Legacy:
+
   ```bash
-  npm i -D @chantelle/eslint-plugin-chantelle @chantelle/eslint-config-legacy eslint-plugin-prettier prettier
+  npm i -D @nod/eslint-plugin-nod @nod/eslint-config-legacy eslint-plugin-prettier prettier
   ```
 
   `package.json`
+
   ```json
   "eslintConfig": {
-    "extends": ["@chantelle/legacy"]
+    "extends": ["@nod/legacy"]
   }
   ```

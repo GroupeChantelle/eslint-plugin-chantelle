@@ -1,2 +1,2 @@
-const { chantelle } = require('./')
-module.exports = chantelle
+const { nod } = require('./')
+module.exports = nod

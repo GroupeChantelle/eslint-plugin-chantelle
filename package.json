@@ -1,12 +1,13 @@
 {
-  "name": "@chantelle/eslint-plugin-chantelle",
+  "name": "@nod/eslint-plugin-nod",
+  "private": true,
   "main": "./build/main.js",
   "module": "./src/index.js",
   "sideEffects": false,
-  "version": "1.4.7-1",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:editionlingerie/chantelle-tools.git"
+    "url": "git+ssh://git@github.com:NOD-studios/eslint-plugin-nod.git"
   },
   "peerDependencies": {
     "babel-eslint": "^8.2.6",

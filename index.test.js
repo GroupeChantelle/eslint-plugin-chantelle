@@ -1,5 +1,5 @@
 /* eslint fp/no-unused-expression:0, fp/no-nil:0, better/explicit-return:0, no-shadow:0 */
-import { configs, chantelle, legacy, chantelleCommonJs } from './src'
+import { configs, nod, legacy, nodCommonJs } from './src'
 
 const checkArrayOfObjects = arrayOfObjects =>
   arrayOfObjects.map(arrayOfObjects =>
@@ -7,10 +7,10 @@ const checkArrayOfObjects = arrayOfObjects =>
   )
 
 test('exports objects', () => {
-  checkArrayOfObjects([configs, chantelle, legacy, chantelleCommonJs])
+  checkArrayOfObjects([configs, nod, legacy, nodCommonJs])
 })
 
 test('exports objects 2', () => {
-  ;(({ chantelle, legacy, chantelleCommonJs }) =>
-    checkArrayOfObjects([chantelle, legacy, chantelleCommonJs]))(configs)
+  ;(({ nod, legacy, nodCommonJs }) =>
+    checkArrayOfObjects([nod, legacy, nodCommonJs]))(configs)
 })

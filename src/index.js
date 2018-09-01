@@ -16,7 +16,7 @@ export const pluginsDependencies = reduce(
   []
 )
 
-export const chantelleRules = {
+export const nodRules = {
   // flow
   'flowtype/space-after-type-colon': 0,
   'flowtype/space-before-type-colon': 0,
@@ -43,15 +43,17 @@ export const chantelleRules = {
   ],
 
   'import/no-extraneous-dependencies': 1,
+  'import/no-unresolved': 1,
+
   'global-require': 1,
   'no-unused-vars': 1,
   'no-underscore-dangle': 1,
   'no-template-curly-in-string': 1,
-  'import/no-unresolved': 1,
   'no-shadow': 1,
   'no-use-before-define': 1,
   'no-param-reassign': 1,
-  'block-scoped-var': 1
+  'block-scoped-var': 1,
+  'no-nested-ternary': 1
 }
 
 export const propsToPick = ['env', 'parserOptions', 'root', 'settings']
@@ -65,7 +67,7 @@ export const getConfigBase = () => ({
     'plugin:jest/recommended'
   ],
   plugins: [
-    '@chantelle/chantelle',
+    '@nod/nod',
     'jest',
     'babel',
     'flowtype',
@@ -118,7 +120,7 @@ const extendConfig = (config, ext) => {
   }
 
   const extensionRules = {
-    rules: Object.assign({}, getConfigRules(extension), chantelleRules)
+    rules: Object.assign({}, getConfigRules(extension), nodRules)
   }
 
   return merge(config, pick(extension, propsToPick), extensionRules)
@@ -139,8 +141,8 @@ const cleanJsConfig = createConfig(cleanjs)
 const { parserOptions, rules } = cleanJsConfig
 
 export const legacy = emptyConfig
-export const chantelle = cleanJsConfig
-export const chantelleCommonJs = {
+export const nod = cleanJsConfig
+export const nodCommonJs = {
   ...cleanJsConfig,
   parserOptions: {
     ...parserOptions,
@@ -153,5 +155,5 @@ export const chantelleCommonJs = {
   }
 }
 
-export const configs = { legacy, chantelle, chantelleCommonJs }
-export default { legacy, chantelle, chantelleCommonJs }
+export const configs = { legacy, nod, nodCommonJs }
+export default { legacy, nod, nodCommonJs }

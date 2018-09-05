@@ -49,7 +49,7 @@ export const nodRules = {
   'no-unused-vars': 1,
   'no-underscore-dangle': 1,
   'no-template-curly-in-string': 1,
-  'no-shadow': 1,
+  'no-shadow': 0,
   'no-use-before-define': 1,
   'no-param-reassign': 1,
   'block-scoped-var': 1,
@@ -156,4 +156,4 @@ export const nodCommonJs = {
 }
 
 export const configs = { legacy, nod, nodCommonJs }
-export default { legacy, nod, nodCommonJs }
+// export default { legacy, nod, nodCommonJs }

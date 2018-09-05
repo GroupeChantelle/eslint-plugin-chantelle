@@ -27,7 +27,7 @@
     "prettier": "^1.14.0"
   },
   "devDependencies": {
-    "backpack-core": "^0.7.0",
+    "@nod/webpack-devops-config": "^2.0.5-0",
     "cross-env": "^5.1.3",
     "flow-bin": "^0.78.0",
     "flow-runtime": "^0.17.0",
@@ -35,8 +35,8 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build": "cross-env NODE_ENV=production backpack build",
-    "start": "cross-env NODE_ENV=development nodemon --exec \"backpack build\""
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "start": "cross-env NODE_ENV=development nodemon --exec yarn build"
   },
   "dependencies": {
     "lodash.merge": "^4.6.1",

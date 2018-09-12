@@ -48,5 +48,6 @@
     "lodash.merge": "^4.6.1",
     "lodash.pick": "^4.4.0",
     "lodash.reduce": "^4.6.0"
-  }
+  },
+  "gitHead": "e13d846b9010af905d06085a891d932d5fd92312"
 }

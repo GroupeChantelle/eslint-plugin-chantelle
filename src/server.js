@@ -42,7 +42,14 @@ export const nodRules = {
     }
   ],
 
-  'import/no-extraneous-dependencies': 1,
+  'import/no-extraneous-dependencies': [
+    1,
+    {
+      devDependencies: true,
+      optionalDependencies: true,
+      peerDependencies: true
+    }
+  ],
   'import/no-unresolved': 1,
 
   'global-require': 1,

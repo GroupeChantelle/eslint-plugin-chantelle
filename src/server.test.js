@@ -1,5 +1,5 @@
 /* eslint fp/no-unused-expression:0, fp/no-nil:0, better/explicit-return:0, no-shadow:0 */
-import { configs, nod, legacy, nodCommonJs } from "."
+import { configs, nod, legacy, nodCommonJs } from './server'
 
 const checkArrayOfObjects = arrayOfObjects =>
   arrayOfObjects.map(arrayOfObjects =>

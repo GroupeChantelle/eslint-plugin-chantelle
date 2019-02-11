@@ -3,10 +3,10 @@ import cleanjs from 'eslint-config-cleanjs'
 import pick from 'lodash.pick'
 import merge from 'lodash.merge'
 import reduce from 'lodash.reduce'
-import pkg from '../package.json'
+import { peerDependencies } from '../package.json'
 
 export const pluginsDependencies = reduce(
-  pkg.peerDependencies,
+  peerDependencies,
   (plugins, version, dependency) => {
     if (dependency.indexOf('eslint-plugin') === 0) {
       plugins.push(dependency.replace('eslint-plugin-', ''))
@@ -29,6 +29,10 @@ export const nodRules = {
 
   // react
   'react/no-unused-prop-types': 1,
+  'react/jsx-indent': 0,
+  'react/jsx-filename-extension': 0,
+  'react/jsx-closing-tag-location': 0,
+  'react/jsx-one-expression-per-line': 0,
 
   'array-callback-return': 2,
   'arrow-parens': [2, 'as-needed'],
@@ -71,7 +75,8 @@ export const getConfigBase = () => ({
     'airbnb',
     'prettier',
     'plugin:flowtype/recommended',
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'plugin:fp/recommended'
   ],
   plugins: [
     '@nod/nod',
@@ -91,7 +96,6 @@ export const getConfigBase = () => ({
     jest: true,
     browser: true
   },
-  // webpack-dotenv-plugin
 
   parserOptions: {
     ecmaVersion: 9,
@@ -157,10 +161,11 @@ export const nodCommonJs = {
   },
   rules: {
     ...rules,
+    'global-require': 0,
     'import/no-commonjs': 0,
     'fp/no-mutation': 0
   }
 }
 
 export const configs = { legacy, nod, nodCommonJs }
-// export default { legacy, nod, nodCommonJs }
+export default configs
